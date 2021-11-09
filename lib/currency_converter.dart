@@ -23,9 +23,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final TextEditingController controller = TextEditingController();
-
   String? errorText;
+
+  final TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
                   if(double.tryParse(value) != null) {
                     final double convert = double.tryParse(value)! * 4.94;
 
-                    controller.text = convert.toStringAsPrecision(3);
+                    controller.text = convert.toStringAsFixed(3);
                     errorText = null;
                   } else {
                     controller.clear();
