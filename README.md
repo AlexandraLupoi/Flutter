@@ -8,3 +8,5 @@
 ## Guess the number
 https://user-images.githubusercontent.com/46060476/141012057-a254bd6f-cff1-4e88-a468-ea6349eb7bf6.mp4
 
+## Number shapes
+https://user-images.githubusercontent.com/46060476/141702398-532471e6-330a-40db-a030-ab145b86ddb6.mp4
