@@ -10,9 +10,7 @@ class NumberShapes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-        home: HomePage()
-    );
+    return const MaterialApp(home: HomePage());
   }
 }
 
@@ -32,61 +30,50 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Number shapes'),
-        centerTitle: true
-      ),
-      body: Column(
-        children: [
-          const Padding(
+      appBar: AppBar(title: const Text('Number shapes'), centerTitle: true),
+      body: Column(children: <Widget>[
+        const Padding(
             padding: EdgeInsetsDirectional.all(10),
             child: Text(
               'Please input a number to see if it is square or triangular.',
-              style: TextStyle(
-                fontSize: 20
-              ),
-            )
+              style: TextStyle(fontSize: 20),
+            )),
+        Padding(
+          padding: const EdgeInsetsDirectional.all(20),
+          child: TextField(
+            controller: controller,
+            keyboardType: TextInputType.number,
           ),
-          Padding(
-            padding: const EdgeInsetsDirectional.all(20),
-            child: TextField(
-              controller: controller,
-              keyboardType: TextInputType.number,
-            ),
-          )
-        ]
-      ),
+        )
+      ]),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.check),
-        onPressed: () {
-          double numberToCheck = double.tryParse(controller.text)!;
-          double base2 = pow(numberToCheck, 1.0/2.0).roundToDouble();
-          double base3 = pow(numberToCheck, 1.0/3.0).roundToDouble();
+          child: const Icon(Icons.check),
+          onPressed: () {
+            final double numberToCheck = double.tryParse(controller.text)!;
+            final double base2 = pow(numberToCheck, 1.0 / 2.0).roundToDouble();
+            final double base3 = pow(numberToCheck, 1.0 / 3.0).roundToDouble();
 
-          FocusScope.of(context).unfocus();
-          setState(() {
-            square = pow(base2, 2) == numberToCheck ? true : false;
-            triangular = pow(base3, 3) == numberToCheck ? true : false;
-            showDialog(
-              context: context,
-              builder: (BuildContext builder) {
-                return AlertDialog(
-                  title: Text(controller.text),
-                  content: !square && !triangular
-                    ? Text('Number ${controller.text} is neither SQUARE or TRIANGULAR!')
-                    : !square && triangular
-                    ? Text('Number ${controller.text} is TRIANGULAR!')
-                    : square && !triangular
-                    ? Text('Number ${controller.text} is SQUARE!')
-                    : square && triangular
-                    ? Text('Number ${controller.text} is both SQUARE and TRIANGULAR!')
-                    : null
-                );
-              }
-            );
-          });
-        }
-      ),
+            FocusScope.of(context).unfocus();
+            setState(() {
+              square = pow(base2, 2) == numberToCheck;
+              triangular = pow(base3, 3) == numberToCheck;
+              showDialog<void>(
+                  context: context,
+                  builder: (BuildContext builder) {
+                    return AlertDialog(
+                        title: Text(controller.text),
+                        content: !square && !triangular
+                            ? Text('Number ${controller.text} is neither SQUARE or TRIANGULAR!')
+                            : !square && triangular
+                                ? Text('Number ${controller.text} is TRIANGULAR!')
+                                : square && !triangular
+                                    ? Text('Number ${controller.text} is SQUARE!')
+                                    : square && triangular
+                                        ? Text('Number ${controller.text} is both SQUARE and TRIANGULAR!')
+                                        : null);
+                  });
+            });
+          }),
     );
   }
 }
