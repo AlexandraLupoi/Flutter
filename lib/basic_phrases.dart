@@ -22,7 +22,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<String> phrases = [
+  List<String> phrases = <String>[
     'Bună!',
     'Salut!',
     'Ce faci?',
@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
   ];
   String ro = 'https://translate.google.com/translate_tts?ie=UTF-&&client=tw-ob&tl=ro&q=';
   String fr = 'https://translate.google.com/translate_tts?ie=UTF-&&client=tw-ob&tl=fr&q=';
-  List<String> words = [
+  List<String> words = <String>[
     '[buna]',
     '[salut]',
     '[ce faci?]',
