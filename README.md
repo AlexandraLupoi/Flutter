@@ -1,5 +1,8 @@
 # Flutter
 
+## Basic phrases
+https://user-images.githubusercontent.com/46060476/142776621-9bca47f5-32c8-4273-941b-86bcd77e1594.mp4
+
 ## Tic-Tac-Toe
 https://user-images.githubusercontent.com/46060476/142756647-5c0bc5ce-9360-462a-8955-8f4e40d9548b.mp4
 
